@@ -4,24 +4,24 @@ pipeline {
     stages {
         stage ('Initialize') {
             steps {
-                bat 'mvn clean install'
+                sh 'mvn clean install'
             }
         }
 
         stage ('Test') {
             steps {
-                bat 'mvn test'
+                sh 'mvn test'
             }
         }
 	stage ('Build') {
             steps {
-                bat 'mvn package'
+                sh 'mvn package'
             }
         }
 
 	stage ('Deploy') {
             steps {
-		bat 'java -cp target/projectadd-1.0-SNAPSHOT.jar com.sapient.App'
+		sh 'java -cp target/projectadd-1.0-SNAPSHOT.jar com.sapient.App'
             }
         }
 	
